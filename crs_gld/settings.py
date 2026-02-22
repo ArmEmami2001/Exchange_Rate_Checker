@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,7 +126,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-CORS_ALLOW_ALL_ORIGINS = True
+CSRF_ALLOW_ALL_ORIGINS = True
+
+# API External URLs
+CURRENCY_API_URL = os.getenv("CURRENCY_API_URL")
+GOLD_API_URL = os.getenv("GOLD_API_URL")
+CRYPTO_API_URL = os.getenv("CRYPTO_API_URL")
+API_TOKEN = os.getenv("API_TOKEN")
 
 ALLOWED_HOSTS = ['*']
 

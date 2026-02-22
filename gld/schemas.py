@@ -1,4 +1,5 @@
 from ninja import Schema
+from typing import Dict
 
 class GoldDetail(Schema):
     slug: str
@@ -13,3 +14,6 @@ class GoldDetail(Schema):
     bubble: float = None
     bubble_per: float = None
     updated_at: str
+
+class GoldResponseSchema(Schema):
+    gold_prices: Dict[str, GoldDetail]

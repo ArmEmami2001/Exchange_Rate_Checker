@@ -1,4 +1,5 @@
 from ninja import Schema
+from typing import Dict
 
 class CryptoDetail(Schema):
     slug: str
@@ -13,3 +14,6 @@ class CryptoDetail(Schema):
     toman: float
     toman24hchange: float
     updated_at: str
+
+class CryptoResponseSchema(Schema):
+    crypto_prices: Dict[str, CryptoDetail]
